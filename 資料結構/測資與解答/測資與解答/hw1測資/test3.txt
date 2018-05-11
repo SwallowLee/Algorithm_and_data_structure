@@ -1,0 +1,423 @@
+ABSTRACT Sequential pattern mining finds the frequent subsequences or patterns 
+from the given sequences. TPrefixSpan algorithm finds the relevant frequent patterns 
+from the given sequential patterns formed using interval based events. In our 
+proposed work, we add multiple constraints like item, length and aggregate to
+the interval based TPrefixSpan algorithm. By adding these constraints the efficiency 
+and effectiveness of the algorithm improves. The proposed constraint based 
+algorithm CTPrefixSpan has been applied to synthetic medical dataset. The algorithm 
+can be applied for stock market analysis, DNA sequences analysis etc.
+KEYWORDS Sequential patterns, temporal patterns, Constraints, Interval based 
+events. 1. INTRODUCTION Data mining is useful in various domains such as market 
+analysis, decision support, fraud detection, business management and so on. 
+Sequential pattern mining is an approach to extract information from input 
+sequences [1]. Various methods have been proposed for mining temporal
+patterns in sequence databases such as mining repetitive patterns, trends and 
+sequential patterns. Sequential Pattern Mining is a popular technique which consists 
+of finding subsequences appearing frequently in a set of sequence. However, 
+knowing that a sequence appear frequently is not sufficient for making predictions. 
+Sequential pattern mining approaches are classified as Apriori [2] or generate and 
+test approach, pattern growth or divide-and-conquer approach. The Apriori and 
+AprioriAll algorithms are based on apriori property and use the generate join
+procedure to form the candidate sequence. It identifies frequent item set in the 
+database and extends it to a larger item set as those item set appears sufficiently in 
+the database. Some of the widely used apriori based algorithms are GSP [3], SPADE 
+[4] and SPAM [5]. Pattern growth algorithms allow the frequent item set discovery 
+without candidate item set generation. They first build the data structure called 
+FP-tree. Frequent Pattern tree consists of nodes corresponding to items and counters. 
+This tree reads only one transaction at a time and maps it to a path. Then it extracts 
+the frequent item set directly from the FP-tree. Some of the widely used pattern 
+growth Algorithms are PrefixSpan [6] and FreeSpan [7] . A projection based
+pattern-growth method is used in PrefixSpan (Prefix-projected Sequential pattern 
+mining) algorithm for mining sequential patterns. Its major idea is that, instead of 
+projecting sequence databases by considering all the possible occurrences of 
+frequent sub sequences, the projection is done on frequent prefix which results in 
+higher efficiency of the algorithm in terms of processing time. The TPrefixSpan [8] 
+algorithm is developed to mine the temporal patterns from interval- based events. 
+Interval-based events are defined as the pair of time values associated with each
+event. Temporal pattern mining includes various tasks like temporal pattern analysis 
+and comparison, temporal classification, temporal association rules, temporal 
+clustering and temporal prediction [9]. TPrefixSpan algorithm deals with mining 
+frequent temporal patterns from interval based events in a given sequence database. 
+This paper discusses about adding multiple constraints with TPrefixSpan algorithm 
+which increases the performance of TPrefixSpan algorithm and reduce the 
+computational time. Constraints based PrefixSpan algorithm discovers sequential
+patterns which are frequent and also satisfy aggregate, length, and item constraints. 
+In this work, Constraint based algorithm CTPrefixSpan is proposed to discover 
+frequent temporal patterns considering item, length and aggregate constraints.
+2. Literature survey In [4] R.Srikant and R.Agarwal proposed an algorithm called ¡§GSP¡¨ 
+(Generalized Sequential Pattern) algorithm which is an apriori based approach for 
+mining frequent patterns. SPAM: SPAM (Sequential Pattern Mining) [5] uses a vertical 
+bitmap data structure representation of database which is similar to the given id-list 
+of SPADE. It integrates the concept of GSP [4], SPADE [6] and FREESPAN [7] 
+algorithms. FreeSpan [7] is the frequent pattern projected sequential pattern mining 
+algorithm which mines frequent sequences, finds the frequent patterns
+and uses the projected database to find the growth of subsequent fragments. Pie et 
+al. [6] proposed a projection based sequential pattern mining algorithm called 
+PrefixSpan algorithm (Prefix-projected Sequential Pattern mining), which mines the 
+frequent patterns from a given data sequence. In [8] Wu-Chen proposed a 
+non-ambiguous temporal pattern for interval-based events. TPrefixSpan algorithm 
+was proposed to mine the new kind of temporal pattern from interval based events. 
+Irfan Khan [10] included multiple constraints with the existing PrefixSpan algorithm 
+to improve the efficiency of PrefixSpan algorithm. Similarly, to improve the efficiency
+of TPrefixSpan algorithm constraints are included and CTPrefixSpan algorithm is 
+proposed in this work. 3. Existing system Interval-based events are represented by 
+two end points. The end point represent the start time and end time of the intervals. 
+Projection method for interval-based events is different from that of point-based 
+events. This form of representation is used in TPrefixSpan algorithm. TPrefixSpan
+algorithm is slower than PrefixSpan algorithm as representing the interval based 
+events requires larger space. In TPrefixSpan algorithm, initially the length of the 
+sequential pattern is found. Then the set of frequent temporal 1-patterns is found 
+from a given sequence database. These steps are repeated until the all frequent 
+patterns are found. All frequent patterns from the sequences are generated. In 
+TPrefixSpan algorithm ¡§Temporal Prefix¡¨, and ¡§Temporal Postfix¡¨ projected databases 
+are to be found and the definitions are given below. The following 2 definitions are 
+based on the definitions in [8]. 3.1 Definition: (Temporal prefix) 4. Proposed system 
+To improve the efficiency of the existing TPrefixSpan algorithm, we need to add more 
+constraints like length, item and aggregate on the output of frequent patterns. 
+Multiple constraints based sequential pattern mining extracts the sequential patterns 
+which are of user¡¦s interest. By adding multiple constraints in interval based events 
+the run time of finding frequent patterns from the given sequences will increases. 
+We can use this constraints based algorithm in finding relevant sequences from the 
+given medical data set and also to find the particular stock details in finance data set. 
+It decreases the patterns from relevant frequent patterns according to the input 
+sequences given. For any particular stock it gives the relevant patterns with respect 
+to user¡¦s interest. By adding multiple constraints in interval based events the run 
+time of finding frequent patterns from the given sequences will increases. We can 
+use this constraints based algorithm in finding relevant sequences from the given 
+medical data set and also to find the particular stock details in finance data set. It 
+decreases the patterns from relevant frequent patterns according to the input 
+sequences given. For any particular stock it gives the relevant patterns with respect 
+to user¡¦s interest. Let us discuss how to generate patterns from given constraints by 
+using our given algorithm. 4.1. Requirements: 4.1.1 To find the length and minimum 
+support: From the given sequence database find the length and set minimum 
+support initially as 0.5. 4.1.2 Apply TPrefixSpan algorithm: To mine the frequent 
+patterns we are applying existing TPrefixSpan algorithm proposed by Wu and Chen 
+[8]. TPrefixSpan algorithm is the pattern mining algorithm to find maximum number 
+of frequent patterns from interval based events. 4.1.3 Constraints added: After 
+applying TPrefixSpan algorithm the multiple constraints like item, length and 
+aggregate constraints are added to refine the result according to user¡¦s interest. The 
+various constraints added in our paper are explained below: Item Constraints: An 
+item constraint is defined as the subset of items that should or should not be present 
+in the patterns [10]. For example,when mining sequential patterns over a stock 
+market, a user may be interested in the patterns that have details about the day high 
+price. The patterns that contain details about the day high are considered as 
+interesting patterns. This enhances the effectiveness of the algorithm by providing 
+patterns according to user¡¦s interest. Length Constraints: A length constraint specifies 
+the requirement on the length of the patterns, where the length can be either the 
+number of occurrences of items or the number of transactions [10]. For example, a 
+user may want to find longer patterns (i.e., at least 4 prices) in stock analysis. Such a 
+requirement can be expressed by a length constraint and thus interesting patterns 
+can be identified. Aggregate Constraint: An aggregate constraint is the constraint on 
+an aggregate of items in a pattern, where the aggregate function can be sum, 
+average, max, min, standard deviation [10]. For example, a user may want to find the 
+frequent sequential patterns where the average number of cost related to the prices 
+is over 3. By applying TPrefixSpan algorithm the frequent patterns mined are shown 
+in Figure 2. After applying Length constraint the resulting frequent patterns are 
+shown in Figure 3. Algorithm: CTPrefixSpan () Input: Temporal Sequence Database S. 
+Output: Frequent patterns, Interesting patterns satisfying user specified constraints 
+Begin Step 1: Identify frequent temporal 1-patterns in S. Considering the frequent 
+temporal 1-pattern generated identify the projected database. Step 2: Generate 
+frequent patterns with frequent 1-pattern as prefix. Identify the projected database. 
+Repeat Step 1 and 2 until all the frequent temporal patterns are mined. Get the 
+constraint type from the user. If constraint specified is item constraint then Identify 
+the patterns that has the item (event) specified. Else if constraint specified is length 
+constraint then Identify the patterns with length= length specified Else if constraint 
+specified is aggregate constraint then Identify the patterns that matches the 
+aggregate specified End if Generate interesting patterns that satisfy the constraints 
+End . Result Analysis Our CTPrefixSpan algorithm improves the efficiency and 
+effectiveness than other sequential pattern mining algorithms. The runtime and 
+Precision of both TPrefixSpan and CTPrefixSpan can be analysed by using medical or 
+finance datasets. Though our algorithm increases the runtime, the precision rate of 
+the proposed CTPrefixSpan algorithm is almost equal to 1. 5.1 Performance 
+Evaluation To evaluate the performance of our CTPrefixSpan, we implemented the 
+TPrefixSpan algorithm for comparison. Both these algorithms were implemented 
+in .NET language and tested on an Intel core windows 7 system using Micrososft 
+Visual Studio package. The runtime of these two algorithms are compared with 
+different length of output patterns. Finally, we calculated the Precision rate of 
+TPrefixSpan and CTPrefixSpan algorithms with different data sets. Finally, it was 
+found that our algorithm increases the runtime. But the precision rate is always 
+nearest to value 1. 5.2 Runtime Comparisons The precision value is calculated by 
+using relevant patterns and retrieved patterns with respect to TPrefixSpan and 
+CTPrefixSpan algorithms. After calculating the precision it is found that our 
+CTPrefixSpan algorithm has a precision rate of 1. Finally it can be concluded that 
+after applying constraints with TPrefixSpan the runtime may increase but the 
+precision rate of the proposed algorithm is high. 6. CONCLUSIONS TPrefixSpan 
+algorithm finds the relevant frequent patterns from the given data sequences 
+representing interval-based events. It is the most efficient interval based algorithms 
+among the sequential pattern mining algorithms. Adding multiple constraints like 
+item and length to the mined patterns increases the scalability, accuracy and hence 
+increases the efficiency of the proposed CTPrefixSpan algorithm. Authors M. 
+Kalaivany is a student of M.Tech (Network and Internet Engineering) in the 
+Department of Computer Science, School of Engineering and Technology, 
+Pondicherry University, India. She was awarded the Anna University for B.Tech degree 
+in Computer Science. She finished her M. Tech in the field of Network and Internet 
+Engineering. She has published 1 research paper in international journals and in the 
+proceedings of various international conferences. V.Uma is working as Assistant 
+Professor in the Department of Computer Science, School of Engineering and 
+Technology, Pondicherry University, India. She was awarded the Pondicherry 
+University gold medal for M.Tech degree in Distributed Computing Systems. She is 
+pursuing her Ph.D in the field of Temporal knowledge representation. Her research 
+interest includes Data mining, Semantic web. She has published 15 research papers 
+in various international journals and in the proceedings of various international 
+conferences.  
+Abstract¡XThe mining of closed sequential patterns has attracted researchers for its 
+capability of using compact results to preserve the same expressive power as 
+conventional mining. However, existing studies only focus on time point-based data. 
+Few research efforts have elaborated on discovering closed sequential patterns from 
+time interval-based data, where each data persists for a period of time. Mining 
+closed time intervalbased patterns, also called closed temporal patterns, is an 
+arduous problem since the pairwise relationships between two interval-based events 
+are intrinsically complex. In this paper, an efficient algorithm, CEMiner is developed 
+to discover closed temporal patterns from interval-based data. Algorithm CEMiner 
+employs some optimization techniques to effectively reduce the search space. The 
+experimental results on both synthetic and real datasets indicate that CEMiner not 
+only significantly outperforms the prior interval-based mining algorithms in terms of 
+execution time but also possesses graceful scalability. The experiment conducted on 
+real dataset shows the practicability of time interval-based closed pattern mining. 
+Keywords- closed temporal pattern; endpoint representation; sequential pattern 
+mining; time interval-based data INTRODUCTION Recently, sequential pattern mining 
+is an active research topic in data mining for its wide applications such as customer 
+analysis, network intrusion detection, discovery of tandem repeats in DNA sequences, 
+study of scientific and medical processes, to name a few. Many efficient algorithms [1, 
+4, 9, 10, 15, 16, 22] proposed so far have good performance for discovering 
+complete-set frequent patterns. But when mining long frequent sequences, or when 
+using low support thresholds, the performance of such algorithms usually degrade 
+dramatically. For example, assume a database contains only one long sequence 
+{(a1)(a2)(a3)¡K (a100)}. If the minimum support is 1, in the complete-set frequent 
+pattern mining, there will be (2100 ¡V 1) frequent patterns: {a1:1, a2:1, ¡K, 
+(a1)(a2)(a3)¡K(a100):1}. All of them except (a1)(a2)(a3)¡K(a100):1 are redundant, 
+since all the other frequent patterns and their supports can be derived from this 
+pattern. Undoubtedly, a long sequential pattern usually contains an explosive 
+number of subsequences and using low support threshold often bears huge number 
+of computations. When a user or an application only needs the longest or more 
+expressive sequential pattern, closed pattern mining algorithm may be a better 
+alternative. We can avoid exhaustive enumeration of all frequent sequences and thus 
+improve the performance. Hence, the mining of closed sequential patterns has 
+attracted researchers for its capability of using compact results to preserve the same 
+expressive power as complete-set frequent patterns mining. Previous researches of 
+closed sequential pattern mining [3, 7, 17, 21, 23] mainly focus on time point-based 
+data. There has been no efficient method developed for mining closed sequential 
+pattern from time interval-based data. However, in many real world scenarios, some 
+events, which intrinsically tend to persist for periods of time instead of instantaneous 
+occurrences, cannot be treated as ¡§time points¡¨. In such cases, the data is usually a 
+sequence of events with both start and finish times. Examples include library lending, 
+stock fluctuations, patient diseases, and meteorology data. Actually, discovering 
+closed sequential patterns from time interval-based data can reveal more interesting 
+patterns. For example, in the medical field, the simple ordered sequence of events 
+such as may be inadequate to express the complex relationships among symptoms. If 
+we consider the duration time of events, some relationships can be mined from 
+clinical records of patients to study the correlations between the symptoms and the 
+diseases, or the influences between the diseases and other diseases. One may find 
+that ¡§in the case of myocardial infarction, chest pain usually contains the cardiac 
+enzymes increasing.¡¨ Another discovery might be that ¡§in many tuberculosis patients, 
+the presence of coughing up blood usually overlaps intermittent fever.¡¨ Existing time 
+point-based approaches are hampered by the fact that they can only handle 
+instantaneous events efficiently, not event intervals. We can perceive that time 
+point-based issue is just a special case of the time interval based issue (where start 
+time is identical to finish time), but not vise versa. Mining closed time interval-based 
+patterns (also referred to as closed temporal patterns) is more complex and arduous, 
+and requires a different approach from mining time point-based data. So far, little 
+effort has been paid to the issue of mining closed time interval-based sequential 
+patterns. This is partly because of the complicated relationship among event 
+intervals. Since the feature of time interval is quite different from time point, the 
+pairwise relationships between any two time interval-based 2011 11t events are 
+intrinsically complex. This complex relation is really a crucial bottleneck when we 
+endeavor to design an efficient and effective algorithm for mining closed temporal 
+patterns, since the complex relations may lead to generate larger number of 
+candidate sequences and workload for counting the support of a candidate sequence. 
+Allen¡¦s 13 temporal logics [2] are comprehensively used to describe the relations 
+among intervals, as shown in Fig. 1. Considering the arrangements of the start and 
+the finish endpoints, there are 13 temporal relations between any two event 
+intervals as: ¡§before,¡¨ ¡§after,¡¨ ¡§overlap,¡¨ ¡§overlapped by,¡¨ ¡§contain,¡¨ ¡§during,¡¨ ¡§start,¡¨ 
+¡§started by,¡¨ ¡§finish,¡¨ ¡§finished by,¡¨ ¡§meet,¡¨ ¡§met by,¡¨ and ¡§equal.¡¨ However, all the 
+Allen¡¦s logics are binary relation and may suffer several problems when describing 
+relationships among more than three event intervals. An appropriate representation 
+is very crucial for facing this circumstance. Various representations [5, 6, 8, 11, 12, 14, 
+19] have been proposed but most of them have restriction on either ambiguity or 
+scalability. The contributions of this paper are as follow: We simplify the processing 
+of complex relations among intervals by capturing the global information of all 
+endpoints in a sequence. Comparing with the complex relations between intervals, 
+the relations among endpoints are simple, i.e., only ¡§before,¡¨ ¡§after¡¨ and ¡§equal.¡¨ 
+Various existing representations may lead to different kinds of problem. We develop 
+a compact representation, endpoint representation, to express a pattern or sequence 
+nonambiguously. Endpoint representation can facilitate the process and improve the 
+performance of algorithm. A novel algorithm, CEMiner, which stands for Closed 
+Endpoint Temporal Miner, is proposed to discover closed temporal patterns 
+efficiently and effectively. Furthermore, CEMiner employs some optimization 
+strategies to reduce the search space and avoids nonpromising closure checking and 
+database projection. Experimental studies on both synthetic and real datasets 
+indicate that proposed strategy and algorithm are both efficient and scalable and 
+outperforms state-of-the-art algorithms. Our experiments also show that the 
+proposed approach consumes a much smaller memory space. The remainder of this 
+paper is organized as follows. Section 2 and 3 provide the related work and some 
+preliminaries, respectively. Section 4 introduces the endpoint representation. Section 
+5 describes the CEMiner algorithm. Section 6 gives the experiments and performance 
+study, and we conclude in Section 7 2.1 Closed Sequential Pattern Mining CloSpan 
+[21] is the first algorithm for mining closed sequential patterns from time point data. 
+It generates a set of closed sequence candidates and then do post-pruning to 
+discover closed sequential patterns. Although it performs two pruning methods to 
+reduce search space, it still consumes much memory to maintain the set of historical 
+closed sequence candidates. BIDE [17] is a fast algorithm for mining closed 
+sequential patterns. Different from CloSpan, it uses a sequence closure checking 
+scheme to avoid the maintenance of closed candidate sequence. The Proposed 
+BackScan pruning method can prune the search space more aggressively than the 
+methods used in CloSpan. COBRA [7] is a two-phased mining algorithm. It first finds 
+all closed frequent itemsets [23], and then extends search space with only these 
+frequent closed itemsets. Because COBRA uses both vertical and horizontal database 
+formats to reduce the searching time in mining process, the memory usage is a major 
+problem. 2.2 Complete-set Temporal Pattern Mining Some recent works have 
+investigated the mining of complete-set temporal patterns. Kam et al. [8] designed 
+an algorithm that uses the hierarchical representation to discover temporal patterns. 
+However, the hierarchical representation is ambiguous and many spurious patterns 
+are found. Hoppner [6] defined the supporting level of a pattern as the total time in 
+which the pattern can be observed within a sliding window. But the algorithm needs 
+to scan the database repeatedly, which would significantly lower its efficiency. H-DFS 
+[13] was proposed to discovery frequent arrangements of event intervals. This 
+approach transforms an event sequence into a vertical representation using id-lists. 
+Hence, H-DFS does not scale well when the temporal pattern length increases. TSKR 
+[12] expressed the temporal concepts of coincidence and partial order for interval 
+patterns. The pattern represented in this format is easily understandable but may 
+reveal the relationship between pairwise event intervals in a pattern ambiguously. 
+Based on MEMISP [9], an algorithm ARMADA [18] is proposed to find frequent 
+temporal patterns from large database. This approach only needs two database scans 
+and does not require candidate generation or database projection. Wu et al. [19] 
+devised a nonambiguous expression, temporal representation, and TPrefixSpan 
+algorithm to discover frequent temporal patterns. Although this algorithm only need 
+two scans of the database, it does not employ any pruning strategy to reduce the 
+search space. Patel et al. [14] utilized additional counting information to achieve a 
+lossless hierarchical representation, named Augmented Representation, and 
+proposed an algorithm, IEMiner. Although IEMiner uses some optimization strategies 
+to reduce the search space and remove nonpromising candidate sequences, it still 
+has to scan database multiple times. HTPM [20] was developed for mining hybrid 
+temporal patterns from event sequences, which contain both point-based and 
+interval-based events. A new robust representation, SIPO [11], utilizes the 
+boundaries of interval and further considers the noise tolerance to express 
+relationships among intervals. The mining algorithm requires discovering both closed 
+sequential pattern and closed itemset. Based on a compact representation, 
+coincidence representation, CTMiner [5] is an efficient algorithm for mining temporal 
+patterns. Algorithm also proposed some pruning strategies to significantly reduce the 
+search space. All of these algorithms only focus on mining closed sequential patterns 
+from time point-based data or mining temporal patterns from time interval-based 
+data. No effort has been put to closed temporal pattern. In this paper, we discuss and 
+design an efficient method to discover closed temporal patterns from interval-based 
+data. The time interval-based mining problem is much more difficult than time 
+point-based mining issue. Since the time period of the two intervals may overlap, the 
+relation among event intervals is intrinsically more complicated than that of the 
+event points. Allen¡¦s 13 temporal logics [2], in general, are adopted to describe the 
+relations among intervals, as shown in Fig. 1. Unfortunately, when describing 
+relationships among more than three events, Allen¡¦s temporal logics may suffer 
+several problems. A suitable representation is very important for describing a 
+temporal pattern. As mentioned above, various representations have been proposed 
+but most of them have restriction on either ambiguity or space usage. In this paper, a 
+new expression, endpoint representation is proposed to address the ambiguous and 
+scalable problem. Existing temporal pattern mining assumes that events do not have 
+any duration. However, events in many real world applications have durations, and 
+the relationships among these events are often complex. These relationships are 
+modeled using a hierarchical representation that extends Allen¡¦s interval algebra. 
+However, this representation is lossy as the exact relationships among the events 
+cannot be fully recovered. In this paper, we augment the hierarchical representation 
+with additional information to achieve a lossless representation. An efficient 
+algorithm called IEMiner is designed to discover frequent temporal patterns from 
+interval-based events. The algorithm employs two optimization techniques to reduce 
+the search space and remove non-promising candidates. From the discovered 
+temporal patterns, we build an interval-based classifier called IEClassifier to 
+differentiate closely related classes. Experiments on both synthetic and real world 
+datasets indicate the efficiency and scalability of the proposed approach, as well as 
+the improved accuracy of IEClassifier. General Terms Algorithms Keywords 
+Interval-based Event Mining, Temporal Relation, Classifier for Interval Data 1. 
+INTRODUCTION Temporal pattern mining aims to discover useful relations that are 
+hidden among events. Existing temporal mining algorithms [1, 10, 3, 12] have 
+focused on discovering frequent temporal patterns from instantaneous events, that 
+is, events with no duration. This assumption allows the discovered pattern to be 
+simplified to an ordered sequence of events, such as However, such sequential 
+patterns are inadequate to express the complex temporal relationships in domains 
+such as medical, multimedia, meteorology and finance where the events¡¦ durations 
+could play an important role. For example, it has been observed that in many 
+diabetic patients, the presence of hyperglycemia1 overlaps with the absence of 
+glycosuria2. This insight has led to the development of effective diabetic testing kits. 
+In the case of dengue fever, knowing that there will be a decrease of platelet counts 
+on the third day after the onset of fever has led to a better management of the 
+disease. Clearly, there is a need for an efficient mining algorithm that can discover 
+complex relationships among events with duration, also known as interval-based 
+events. Furthermore, these discovered relationships could be used to build a 
+classifier that is able to distinguish closely related classes. Mining complex 
+interval-based relationships efficiently requires an unique yet lossless representation 
+to capture the temporal relationships among events. Allen¡¦s interval algebra [2] has 
+traditionally been used to represent the temporal relationship between two 
+interval-based events. However, capturing the temporal relationships among three or 
+more events remains an issue. Many approaches use a hierarchical representation [6, 
+14] to encode the temporal relationships among events. This representation is lossy 
+as it does not preserve the underlying temporal structure of the events. Any mining 
+algorithm that is based on a lossy representation will lead to the discovery of many 
+spurious patterns as non-frequent patterns may become frequent. Existing 
+interval-based mining algorithms are either based on a lossy representation [8] or do 
+not scale well [11, 15]. We overcome these drawbacks by devising a lossless 
+representation. Based on the proposed representation, we design an interval-based 
+event mining algorithm. The algorithm employs two optimization techniques to 
+reduce the search space and remove non-promising candidates. Taking a step further, 
+we examine how the discovered temporal patterns can be utilized in classification to 
+differentiate closely related classes. To the best of our knowledge, this is the first 
+work to build an interval-based classifier. The contributions of this paper are as 
+follow: We augment the hierarchical representation with count information to 
+achieve a lossless representation. We provide a proof that the augmented 
+representation is indeed lossless. This enables us to recover the actual relationships 
+among events in the mining process. We design an Apriori-based algorithm called 
+¡§IEMiner¡¨( Interval-based Event Miner) to discover frequent temporal patterns based 
+on the lossless representation. IEMiner employs two optimization strategies to 
+reduce the search space. The proof of the completeness of IEMiner is detailed. We 
+also build an interval-based temporal pattern classifier called IEClassifier to perform 
+the classification of closely related classes. We apply the classifier to a real world 
+Hepatitis dataset to demonstrate its improved accuracy Experimental studies on both 
+synthetic and real world datasets indicate that IEMiner is both efficient and scalable 
+and outperforms state-of-the-art algorithms. The IEClassi- fier improves the 
+predictive accuracy on the real world Hepatitis dataset over traditional classifiers 
+such as CBA [9], C4.5 [13] and SVM [5]. The rest of the paper is organized as follows. 
+Section 2 gives the related work. Section 3 provides some preliminaries. Section 4 
+introduces the augmented hierarchical-based representation. Section 5 describes the 
+IEMiner algorithm and the optimization strategies. Section 6 presents the design of 
+IEClassifier. Section 7 gives the experiment results and we conclude in Section 8 2. 
+RELATED WORK There has been a stream of research on mining sequential patterns 
+[3, 12, 10, 1]. These works assume that events have zero duration. Recent works have 
+investigated the mining of interval-based events [8, 11, 15]. Kam et. al. [8] design an 
+algorithm that uses the hierarchical representation to discover frequent temporal 
+patterns. However, the hierarchical representation is ambiguous and many spurious 
+patterns are found. Papapetrou et. al. [11] propose the H-DFS algorithm to mine 
+frequent arrangements of temporal intervals. Both these works transform an event 
+sequence into a vertical representation using id-lists. The id-list of one event is 
+merged with the id-list of other events to generate temporal patterns. This approach 
+does not scale well when the temporal pattern length increases. Wu et. al. [15] 
+devise an algorithm called TPrefix for mining non-ambiguous temporal pattern from 
+interval-based events. TPrefix first discovers single frequent events from the 
+projected database. Next, it generates all the possible candidates between temporal 
+prefix and discovered frequent events and scans the projected database again for 
+support counting. TPrefixSpan has several inherent limitations: multiple scans of the 
+database is needed and the algorithm does not employ any pruning strategy to 
+reduce the search space. Discovered sequential patterns can be leveraged to obtain 
+high confidence association rules useful for classification. Liu et. al. [9] propose a 
+classification scheme based on association rules to improve the prediction accuracy. 
+Recently, Cheng et. al. [4] present a detailed study of frequent pattern analysis for 
+classification. In their approach, high discriminating frequent patterns are discovered 
+from the non-sequential data. These patterns are used as additional features for 
+classification. In our approach, we discover discriminative frequent patterns from 
+sequential data and employ them for classification. In this paper, we have examined 
+the problem of mining relationships among interval-based events. We augmented 
+existing hierarchical representation with additional count information to make the 
+representation lossless. Based on this new representation, we have developed an 
+Apriori-based IEMiner algorithm to mine frequent temporal patterns from 
+interval-based events. We designed an efficient support counting procedure. The 
+performance of IEMiner is further improved by employing a window blacklisting 
+strategy and a prefix counting strategy. Experiments on synthetic data sets and real 
+world datasets demonstrate the efficiency and scalability of our proposed approach. 
+Beyond this, we have de-signed the first interval-based classifier, IEClassifier to 
+improve the predictive accuracy of closely related classes. Experiment results on the 
+Hepatitis dataset show that IEClassifier outperforms traditional classifiers such as 
+C4.5, CBA, and SVM. After mapping the test results into interval based events, we 
+create an event list for each patient. We obtain a total of 498 event lists that 
+correspond to patients who undergo the 25 tests regularly. Figure 15 shows the 
+results of applying the mining algorithms on the transformed Hepatitis dataset 
+(Hep-T). We observe that IEMiner perform best compared to all algorithms. Here, 
+average length of underlying event list is around 200 events. GenPrefixspan did not 
+perform well because it consider events without duration and as a result many 
+patterns are generated compared to other three algorithm. If the results of a test 
+Test during an interval [start, end] oscillates between Low and High, we map it to the 
+event (Test-LH, start, end).

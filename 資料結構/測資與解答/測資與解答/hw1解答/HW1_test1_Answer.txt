@@ -1,0 +1,9 @@
+test1.txt
+
+1 3 "zzy" "Fuzzy Wuzzy was a bear. Fuzzy Wuzzy had no hair. "
+1 9 "zzy" "Fuzzy Wuzzy was a bear. Fuzzy Wuzzy had no hair. "
+1 27 "zzy" "Fuzzy Wuzzy was a bear. Fuzzy Wuzzy had no hair. "
+1 33 "zzy" "Fuzzy Wuzzy was a bear. Fuzzy Wuzzy had no hair. "
+2 3 "zzy" "Fuzzy Wuzzy wasn't very fuzzy, was he?"
+2 9 "zzy" "Fuzzy Wuzzy wasn't very fuzzy, was he?"
+2 27 "zzy" "Fuzzy Wuzzy wasn't very fuzzy, was he?"
